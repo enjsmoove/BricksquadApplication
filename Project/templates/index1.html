@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BrickSquad Application</title>
+
+    <!-- Bootstrap -->
+     <link type='text/css', rel="stylesheet", href="'static/bootstrap.min.css' > 
+    <link type='text/css', rel="stylesheet", href="'static/bootstrap.css'" >
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet/less", href="'static/bootstrap.less'"> 
+<script src="/path/to/less.js"></script>
+	<style>
+      html, body, #map-canvas {
+        height: 80%;
+		width: 80%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+	var map;
+	function initialize() {
+	  var mapOptions = {
+		zoom: 8,
+		center: new google.maps.LatLng(-34.397, 150.644)
+	  };
+	  map = new google.maps.Map(document.getElementById('map-canvas'),
+		  mapOptions);
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <h1>Hi, {{user.nickname}}!</h1>
+    Enter Python to executre:
+    <form action="/" method="post">
+	<input type="text" name="expression" />
+	<input type="submit" value="Execute" />
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+	Results:
+	<pre>
+	      {% for message in messages %}
+  {{message}}
+	      {% endfor %}
+	</pre>
+      {% endif %}
+    {% endwith %}
+    <div class="dropdown">
+  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+</div><h1>Bricksquad - Twitter Analyzer</h1>
+	<form class="form-search">
+  <input type="text" class="input-medium search-query">
+  <button type="submit" class="btn">Search Tweets</button>
+</form>
+	<div id="map-canvas"></div>
+    <div class="col-lg-12">
+              <h1 id="buttons">Buttons</h1>
+            </div>
+			<form>
+  <fieldset>
+    <legend>Legend</legend>
+    <label>Label name</label>
+    <input type="text" placeholder="Type something…">
+    <span class="help-block">Example block-level help text here.</span>
+    <label class="checkbox">
+      <input type="checkbox"> Check me out
+    </label>
+    <button type="submit" class="btn">Submit</button>
+  </fieldset>
+</form>
+<div class="progress progress-striped active">
+  <div class="progress-bar" style="width: 45%"></div>
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
